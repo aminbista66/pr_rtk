@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { addTodo, updateTodo, deleteTodo } from "@/redux/slice";
 import { useDispatch } from "react-redux";
-import { todo } from "node:test";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,7 +44,7 @@ export default function Home() {
     );
     setTask("");
   };
-  const handleDelete = async (todoObject: Todo) => {
+  const handleDelete = (todoObject: Todo) => {
     console.log(deleteAttempt);
     if (!todoObject.is_completed) {
       if (deleteAttempt > 0) {
@@ -97,7 +96,7 @@ export default function Home() {
       <div className="flex justify-center items-start mt-[30px]">
         <ul className="">
           {todos.map((todo) => (
-            <li className="flex gap-[10px] items-center">
+            <li className="flex gap-[10px] items-center mb-[8px]">
               <input
                 type="checkbox"
                 className="mr-[5px]"
