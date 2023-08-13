@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { addTodo, updateTodo, deleteTodo } from "@/redux/slice";
 import { useDispatch } from "react-redux";
+import { GetServerSideProps } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,14 @@ export default function Home() {
   const [task, setTask] = React.useState<string>("");
   const [due, setDue] = React.useState<string>("");
   const [deleteAttempt, setDeleteAttempt] = React.useState<number>(0);
+  const [currentDate, setCurrentDate] = React.useState<string>("");
+
+  React.useLayoutEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDate((new Date().toISOString()).replace(/T/, ' ').split('.')[0]);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const todos = useSelector((state: RootState) => state.todos);
   const dispatch = useDispatch();
@@ -45,7 +54,6 @@ export default function Home() {
     setTask("");
   };
   const handleDelete = (todoObject: Todo) => {
-    console.log(deleteAttempt);
     if (!todoObject.is_completed) {
       if (deleteAttempt > 0) {
         dispatch(deleteTodo(todoObject));
@@ -56,7 +64,6 @@ export default function Home() {
         "You are going to delete an uncompleted task press delete once again."
       );
       setDeleteAttempt((prev) => prev + 1);
-      console.log(deleteAttempt);
       return;
     }
     dispatch(deleteTodo(todoObject));
@@ -64,8 +71,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center gap-[20px]">
         <h1 className="text-2xl font-bold text-gray-800 py-4">Todo List</h1>
+        <h1 className="text-xl font-bold text-gray-800 py-4">{currentDate || ""}</h1>
       </div>
       <div className="flex justify-center items-center">
         <div className="flex gap-5">
@@ -127,3 +135,11 @@ export default function Home() {
     </>
   );
 }
+
+// const getServerSideProps: GetServerSideProps = async (context) => {
+//   return {
+//     props: {
+//       initialDate: new Date().toISOString(),
+//     },
+//   };
+// };
