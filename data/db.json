@@ -1,0 +1,124 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Finish homework",
+      "completed": false,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Go grocery shopping",
+      "completed": true,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "title": "Call friend",
+      "completed": false,
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "title": "Read a book",
+      "completed": false,
+      "userId": 2
+    },
+    {
+      "id": 5,
+      "title": "Exercise",
+      "completed": true,
+      "userId": 3
+    },
+    {
+      "id": 6,
+      "title": "Watch a movie",
+      "completed": false,
+      "userId": 3
+    },
+    {
+      "id": 7,
+      "title": "Write a blog post",
+      "completed": true,
+      "userId": 4
+    },
+    {
+      "id": 8,
+      "title": "Cook dinner",
+      "completed": false,
+      "userId": 4
+    },
+    {
+      "id": 9,
+      "title": "Plan vacation",
+      "completed": false,
+      "userId": 5
+    },
+    {
+      "id": 10,
+      "title": "Attend a meeting",
+      "completed": true,
+      "userId": 5
+    },
+    {
+      "id": 11,
+      "title": "Buy gifts",
+      "completed": false,
+      "userId": 1
+    },
+    {
+      "id": 12,
+      "title": "Clean the house",
+      "completed": false,
+      "userId": 2
+    },
+    {
+      "id": 13,
+      "title": "Learn a new song",
+      "completed": true,
+      "userId": 3
+    },
+    {
+      "id": 14,
+      "title": "Organize files",
+      "completed": false,
+      "userId": 4
+    },
+    {
+      "id": 15,
+      "title": "Water the plants",
+      "completed": true,
+      "userId": 5
+    },
+    {
+      "id": 16,
+      "title": "Update resume",
+      "completed": false,
+      "userId": 1
+    },
+    {
+      "id": 17,
+      "title": "Fix the car",
+      "completed": false,
+      "userId": 2
+    },
+    {
+      "id": 18,
+      "title": "Research a topic",
+      "completed": true,
+      "userId": 3
+    },
+    {
+      "id": 19,
+      "title": "Paint a picture",
+      "completed": false,
+      "userId": 4
+    },
+    {
+      "id": 20,
+      "title": "Practice coding",
+      "completed": true,
+      "userId": 5
+    }
+  ]
+}
