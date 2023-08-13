@@ -24,9 +24,9 @@ export default function Home() {
   const [deleteAttempt, setDeleteAttempt] = React.useState<number>(0);
   const [currentDate, setCurrentDate] = React.useState<string>("");
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentDate((new Date().toISOString()).replace(/T/, ' ').split('.')[0]);
+      setCurrentDate(new Date().toISOString().replace(/T/, " ").split(".")[0]);
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -42,15 +42,7 @@ export default function Home() {
       alert("Please enter a due time");
       return;
     }
-    dispatch(
-      addTodo({
-        id: uuidv4(),
-        task,
-        is_completed: false,
-        created_at: new Date().toLocaleTimeString(),
-        due_on: due,
-      })
-    );
+    dispatch(addTodo(task, due));
     setTask("");
   };
   const handleDelete = (todoObject: Todo) => {
@@ -73,7 +65,9 @@ export default function Home() {
     <>
       <div className="flex justify-center items-center gap-[20px]">
         <h1 className="text-2xl font-bold text-gray-800 py-4">Todo List</h1>
-        <h1 className="text-xl font-bold text-gray-800 py-4">{currentDate || ""}</h1>
+        <h1 className="text-xl font-bold text-gray-800 py-4">
+          {currentDate || ""}
+        </h1>
       </div>
       <div className="flex justify-center items-center">
         <div className="flex gap-5">
